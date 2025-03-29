@@ -28,7 +28,7 @@ const mockNannies = [
     experience: 6,
     rate: "$20/hr",
     bio: "Loving nanny with over 6 years of experience. CPR certified and specializes in early childhood care.",
-    image: "https://images.pexels.com/photos/3763575/pexels-photo-3763575.jpeg",
+    image: "https://images.pexels.com/photos/4256852/pexels-photo-4256852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     reviews: ["Emily is amazing!", "Punctual and responsible."],
     timeAvailability: "Full day",
     availableDays: ["Mon", "Tue", "Wed", "Thu"],
