@@ -149,7 +149,6 @@ const NannyDetail = () => {
               </Box>
             ))}
 
-            {/* Days Available */}
             <Box w="full">
               {label("Days Available")}
               <Wrap spacing={2}>
@@ -221,7 +220,6 @@ const NannyDetail = () => {
             </Box>
           </VStack>
 
-          {/* Right: Image preview + input */}
           <Flex direction="column" align="center" gap={4}>
             <Box
               border="1px dashed gray"
@@ -258,7 +256,6 @@ const NannyDetail = () => {
           </Flex>
         </Grid>
 
-        {/* Buttons */}
         <Flex justify="flex-end" mt={8} gap={4}>
           <Button onClick={handleClear} variant="outline" colorScheme="gray">
             Clear

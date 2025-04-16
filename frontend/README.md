@@ -1,8 +1,9 @@
-# mern-chakra-product-store# React + Vite
+## User Stories
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| **ID** | **As a**            | **I want to**                     | **So that I can**                   | **Status** |
+|--------|----------------------|------------------------------------|-------------------------------------|---------|
+| 1      | Babysitter          | Edit my profile                   | Keep my information up-to-date      | Done    |
+| 2      | Parent              | Search for babysitters            | Find someone to take care of my child |         |
+| 3      | Babysitter          | Set my availability               | Let parents know when I am available |         |
+| 4      | Parent              | View babysitter profiles          | Choose the best babysitter for my needs|         |
+| 5      | Babysitter/Parent   | Log in to the platform            | Access my personalized features     | Done    |

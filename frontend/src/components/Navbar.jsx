@@ -15,51 +15,66 @@ import LoginDialog from "./LoginDialog";
 import SignUpDialog from "./SignUpDialog";
 
 const Navbar = () => {
+  const storedUser = localStorage.getItem("user");
+  const user = storedUser ? JSON.parse(storedUser) : null;
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
+
   return (
-    <Container maxW={"1140px"} px={4}>
-      <Flex
-        h={16}
-        alignItems={"center"}
-        justifyContent={"space-between"}
-        flexDir={{
-          base: "column",
-          sm: "row",
-        }}
-      >
-        <Text
-          fontSize={{ base: "22px", sm: "28px" }}
-          fontWeight={"bold"}
-          textTransform={"uppercase"}
-          textAlign={"center"}
-          bgGradient="to-r"
-          gradientFrom="cyan.400"
-          gradientTo="blue.500"
-          bgClip={"text"}
+      <Container maxW="1140px" px={4}>
+        <Flex
+            h={16}
+            alignItems="center"
+            justifyContent="space-between"
+            flexDir={{ base: "column", sm: "row" }}
         >
-          <Link to={"/"}>CareLink</Link>
-        </Text>
+          <Text
+              fontSize={{ base: "22px", sm: "28px" }}
+              fontWeight="bold"
+              textTransform="uppercase"
+              textAlign="center"
+              bgGradient="to-r"
+              gradientFrom="cyan.400"
+              gradientTo="blue.500"
+              bgClip="text"
+          >
+            <Link to="/">CareLink</Link>
+          </Text>
 
-        <HStack spacing={2} alignItems="center">
-          {/* Login Button and Dialog */}
-          <DialogRoot>
-            <DialogTrigger asChild>
-              <Button>Login</Button>
-            </DialogTrigger>
-            <LoginDialog />
-          </DialogRoot>
+          <HStack spacing={2} alignItems="center">
+            {!user && (
+                <>
+                  <DialogRoot>
+                    <DialogTrigger asChild>
+                      <Button>Login</Button>
+                    </DialogTrigger>
+                    <LoginDialog />
+                  </DialogRoot>
 
-          {/* Sign Up Button and Dialog */}
-          <DialogRoot>
-            <DialogTrigger asChild>
-              <Button>Sign Up</Button>
-            </DialogTrigger>
-            <SignUpDialog />
-          </DialogRoot>
+                  <DialogRoot>
+                    <DialogTrigger asChild>
+                      <Button>Sign Up</Button>
+                    </DialogTrigger>
+                    <SignUpDialog />
+                  </DialogRoot>
+                </>
+            )}
 
-          <ColorModeButton />
-        </HStack>
-      </Flex>
-    </Container>
+            {user && (
+                <>
+                  <Text>Hello, {user.firstName}</Text>
+                  <Button onClick={handleLogout}>Logout</Button>
+                </>
+            )}
+
+            <ColorModeButton />
+          </HStack>
+        </Flex>
+      </Container>
   );
 };
 

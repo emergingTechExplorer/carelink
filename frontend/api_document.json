@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "35d0ff0d-fc1a-4adc-99e6-6364beaeb941",
+		"name": "AA Carelink",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17332222"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"email\": \"john2@gmail.com\",\n    \"password\": \"Test@123\",\n    \"role\": \"BABYSITTER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"john2@gmail.com\",\n    \"password\": \"Test@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Babysitter",
+			"item": [
+				{
+					"name": "Get all babysitters",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9CQUJZU0lUVEVSIiwic3ViIjoiam9objJAZ21haWwuY29tIiwiaWF0IjoxNzQ0MjE0MTI1LCJleHAiOjE3NDQyMTc3MjV9.5JX7DYyvZXMLa59JtJx2J0jj5e8Xufp4uJ5DgbgPVCI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/babysitters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"babysitters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update babysitter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9CQUJZU0lUVEVSIiwic3ViIjoiam9objJAZ21haWwuY29tIiwiaWF0IjoxNzQ0MjE0MTI1LCJleHAiOjE3NDQyMTc3MjV9.5JX7DYyvZXMLa59JtJx2J0jj5e8Xufp4uJ5DgbgPVCI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"phone\": \"1234567890\",\n  \"address\": \"New York\",\n  \"hourlyRate\": 20,\n  \"availabilityDays\": [\"MONDAY\", \"TUESDAY\"],\n  \"availabilityTimeRange\": \"FULL_DAY\",\n  \"location\": \"brooklyn\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/babysitters/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"babysitters",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get babysitter by user id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9CQUJZU0lUVEVSIiwic3ViIjoiam9objJAZ21haWwuY29tIiwiaWF0IjoxNzQ0MjEzMjk5LCJleHAiOjE3NDQyMTY4OTl9.nTk3Y5W3wZDxn7ZCdjNJUzMNtSiCnog-2pzXkxp0WYc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/babysitters/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"babysitters",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search babysitter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9CQUJZU0lUVEVSIiwic3ViIjoiam9objJAZ21haWwuY29tIiwiaWF0IjoxNzQ0MjE0MTgyLCJleHAiOjE3NDQyMTc3ODJ9.6_hr9nNVrzFa5HQAxIPZ9GBwdOhas180eispNioK1Ek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"location\": \"brooklyn\",\n  \"minRate\": 10,\n  \"maxRate\": 25,\n  \"availableDays\": [\"MONDAY\", \"THURSDAY\"],\n  \"timeSlot\": \"HALF_DAY_MORNING\",\n  \"childAge\": 3\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/babysitters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"babysitters"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Add review for a babysitter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"babysitterId\": 2,\n  \"rating\": 5,\n  \"comment\": \"Emily was excellent with our twins!\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/review",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"review"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get reviews by babysitter id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"babysitterId\": 2,\n  \"rating\": 5,\n  \"comment\": \"Emily was excellent with our twins!\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/reviews/babysitter/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"reviews",
+								"babysitter",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
