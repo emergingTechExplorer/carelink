@@ -1,34 +1,45 @@
 # CareLink
 
+Connecting parents with trusted babysitters
+
 ## Tech Stack
-- MongoDB
-- Express.js
+
+### Front end 
+
 - React.js
-- Node.js
-- Chakra UI v3.x
+- Chakra UI
 
-## Setup `.env` file
+### Backend 
 
-```sh
-MONGO_URI=your_mongo_uri
-PORT=5000
+- Spring Boot
+- Spring Security
+- H2 Database
+
+## Run for development
+
+### Prerequisites
+
+- Java (version 11 or higher)
+- Maven (version 3.6.x or higher)
+
+### Frontend
+
 ```
-
-## How to run 
-
-### For Production
-
-```
-cd carelink
-npm run build
-npm run start
-```
-
-### For Development 
-
-```sh
-cd carelink
-npm run dev
 cd carelink/frontend
+npm install 
 npm run dev
 ```
+
+### Backend
+
+```sh
+cd carelink/backend 
+mvn spring-boot:run 
+```
+
+### H2 console access URL 
+
+```sh
+http://localhost:8085/h2-console 
+```
+
