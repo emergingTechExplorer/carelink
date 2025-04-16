@@ -36,6 +36,7 @@ public class DataSeeder {
             String[] names = {"Alice", "Bob", "Cathy", "David", "Ella"};
             String[] cities = {"Toronto", "Vancouver"};
             String[] lastNames = {"Anderson", "Brown", "Clark", "Davis", "Evans"};
+            TimeSlot[] timeSlots = {TimeSlot.FULL_DAY, TimeSlot.HALF_DAY_MORNING, TimeSlot.HALF_DAY_EVENING, TimeSlot.FULL_DAY, TimeSlot.HALF_DAY_MORNING};
             for (int i = 0; i < 5; i++) {
                 String name = names[i];
                 String city = cities[i % cities.length];
@@ -56,8 +57,15 @@ public class DataSeeder {
                 sitter.setQualifications("Certified in Childcare, CPR");
                 sitter.setExperienceInYears(1 + (int)(Math.random() * 5));
                 sitter.setHourlyRate((double) Math.round(10.0 + Math.random() * 10));
-                sitter.setAvailabilityDays(List.of(WeekDay.MONDAY, WeekDay.WEDNESDAY, WeekDay.FRIDAY));
-                sitter.setAvailabilityTimeRange(TimeSlot.FULL_DAY);
+                List<WeekDay>[] daySets = new List[]{
+                    List.of(WeekDay.MONDAY, WeekDay.WEDNESDAY, WeekDay.FRIDAY),
+                    List.of(WeekDay.TUESDAY, WeekDay.THURSDAY),
+                    List.of(WeekDay.SATURDAY, WeekDay.SUNDAY),
+                    List.of(WeekDay.MONDAY, WeekDay.TUESDAY),
+                    List.of(WeekDay.THURSDAY, WeekDay.FRIDAY)
+                };
+                sitter.setAvailabilityDays(daySets[i]);
+                sitter.setAvailabilityTimeRange(timeSlots[i]);
                 sitter.setBio("Experienced babysitter " + name + " who loves kids.");
                 sitter.setLicenseNumber("LIC" + (1000 + suffix));
                 String[] imageUrls = {
