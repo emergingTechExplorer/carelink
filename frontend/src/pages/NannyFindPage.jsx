@@ -131,11 +131,11 @@ const NannyFindPage = () => {
             boxShadow="lg"
         >
           <Heading size="lg" mb={6} color="blue.500">
-            Matching Nannies
+            Matching Babysitters
           </Heading>
 
           {filtered.length === 0 ? (
-              <Text>No nannies found for your filters.</Text>
+              <Text>Currently no available babysitters.</Text>
           ) : (
               filtered.map((nanny, idx) => (
                   <Box key={idx} borderBottom="1px solid lightgray" pb={8} mb={8}>

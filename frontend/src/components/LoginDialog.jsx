@@ -55,7 +55,7 @@ const LoginDialog = () => {
     try {
       const response = await authService.signin(formData);
       setUser(response);
-      alert("Login successful! Welcome back!");
+      alert("Login successful! Welcome to CareLink!");
       // Close dialog on successful login
       document.querySelector('[data-dialog-close]')?.click();
       window.location.reload(); // Reload only on success

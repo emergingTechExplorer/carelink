@@ -125,11 +125,11 @@ export default function SearchPage() {
                 </Flex>
 
                 { isSearched && <Heading size="lg" mb={6} color="blue.500">
-                    Matching Nannies
+                    Matching Babysitters
                 </Heading>}
 
                 {nannies.length === 0 ? (
-                    <Text>No nannies found.</Text>
+                    <Text>No babysitters found.</Text>
                 ) : (
                     <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={6}>
                         {nannies.map((nanny, idx) => (

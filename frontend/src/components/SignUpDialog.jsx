@@ -97,7 +97,7 @@ const SignUpDialog = () => {
     try {
       const response = await authService.signup(formData);
       setUser(response);
-      alert("Sign-up successful! Welcome to CareLink!");
+      alert("Account created successfully!");
       // Only close the dialog on success
       document.querySelector("[data-dialog-close]")?.click();
       window.location.reload();
