@@ -13,8 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { babysitterService } from "@/services/babySitterService.js";
 import { reviewService } from "@/services/reviewService.js";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage } from "@/firebase";
+ 
 
 const timeSlotOptions = [
     { label: "Full Day", value: "FULL_DAY" },
@@ -111,41 +110,7 @@ export default function BabysitterEditPage() {
                 ? { ...prev, availabilityDays: days.filter((d) => d !== dayValue) }
                 : { ...prev, availabilityDays: [...days, dayValue] };
         });
-    };
-
-    const handleImageUpload = async (e) => {
-        if (!e.target.files || e.target.files.length === 0) return;
-        setUploading(true);
-
-        try {
-            const file = e.target.files[0];
-            const imageRef = ref(storage, `profile-images/${babysitterId}/${file.name}`);
-            const uploadTask = uploadBytesResumable(imageRef, file);
-
-            uploadTask.on(
-                "state_changed",
-                (snapshot) => {
-                    // Optional: track progress, e.g.:
-                    // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                },
-                (error) => {
-                    console.error("Upload error:", error);
-                    alert("Error uploading image. See console for details.");
-                    setUploading(false);
-                },
-                async () => {
-                    const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-                    setFormData((prev) => ({ ...prev, profileImageUrl: downloadURL }));
-                    setUploading(false);
-                    alert("Image uploaded successfully!");
-                }
-            );
-        } catch (err) {
-            console.error("Error uploading image:", err);
-            alert("Error uploading image. See console for details.");
-            setUploading(false);
-        }
-    };
+    };    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -170,7 +135,7 @@ export default function BabysitterEditPage() {
                 availabilityTimeRange: formData.availabilityTimeRange,
                 bio: formData.bio,
                 licenseNumber: formData.licenseNumber,
-                profileImageUrl: formData.profileImageUrl, // This is our new Firebase URL
+                profileImageUrl: formData.profileImageUrl,
                 location: formData.location,
             };
 
@@ -471,18 +436,14 @@ export default function BabysitterEditPage() {
                                 )}
 
                                 <Input
-                                    type="file"
-                                    accept="image/*"
-                                    onChange={handleImageUpload}
+                                    type="url"
+                                    name="profileImageUrl"
+                                    placeholder="Enter direct image URL"
+                                    value={formData.profileImageUrl}
+                                    onChange={handleChange}
                                     variant="filled"
                                     focusBorderColor="teal.400"
                                 />
-
-                                {uploading && (
-                                    <Text fontSize="sm" color="orange.400" mt={1}>
-                                        Uploading...
-                                    </Text>
-                                )}
                             </Box>
 
                             {/* Location */}
