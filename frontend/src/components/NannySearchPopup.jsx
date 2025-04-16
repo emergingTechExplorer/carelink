@@ -40,8 +40,8 @@ export const NannySearchPopup = ({
                                      locationOptions = [],
                                  }) => {
     const [location, setLocation] = useState("");
-    const [minPrice, setMinPrice] = useState(15);
-    const [maxPrice, setMaxPrice] = useState(35);
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(50);
     const [selectedDays, setSelectedDays] = useState([]);
     const [timeRange, setTimeRange] = useState("");
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {PROD_URL, STG_URL} from "@/const.js";
 
-const API_URL = PROD_URL+'/auth';
+const API_URL = STG_URL+'/auth';
 
 export const authService = {
   signup: async (userData) => {

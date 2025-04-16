@@ -1,7 +1,7 @@
 import axios from "axios";
 import {PROD_URL, STG_URL} from "@/const.js";
 
-const REVIEW_API_URL = PROD_URL+"/reviews";
+const REVIEW_API_URL = STG_URL+"/reviews";
 
 export const reviewService = {
     addReview: async (reviewData) => {
